@@ -1,18 +1,18 @@
 #include "Enigma.h"
 
-bool Enigma::loadRotors() {
+bool Enigma::cargarRotores() {
     return r1.cargardesdearchivo("Rotor1.txt") &&
         r2.cargardesdearchivo("Rotor2.txt") &&
         r3.cargardesdearchivo("Rotor3.txt");
 }
 
-void Enigma::setPositions(char a, char b, char c) {
+void Enigma::ponerPosiciones(char a, char b, char c) {
     r1.ponerposicion(a);
     r2.ponerposicion(b);
     r3.ponerposicion(c);
 }
 
-char Enigma::encryptChar(char c) {
+char Enigma::encriptarCaracter(char c) {
     r1.siguienteposicionrotor();
     if (r1.girorotor()) r2.siguienteposicionrotor();
     if (r2.girorotor()) r3.siguienteposicionrotor();
@@ -24,7 +24,7 @@ char Enigma::encryptChar(char c) {
     return c;
 }
 
-char Enigma::decryptChar(char c) {
+char Enigma::desencriptarCaracter(char c) {
     r1.siguienteposicionrotor();
     if (r1.girorotor()) r2.siguienteposicionrotor();
     if (r2.girorotor()) r3.siguienteposicionrotor();
@@ -36,16 +36,16 @@ char Enigma::decryptChar(char c) {
     return c;
 }
 
-std::string Enigma::encryptMessage(const std::string& msg) {
+std::string Enigma::encriptarMensaje(const std::string& msg) {
     std::string result;
     for (char c : msg)
-        result += encryptChar(c);
+        result += encriptarCaracter(c);
     return result;
 }
 
-std::string Enigma::decryptMessage(const std::string& msg) {
+std::string Enigma::desencriptarMensaje(const std::string& msg) {
     std::string result;
     for (char c : msg)
-        result += decryptChar(c);
+        result += desencriptarCaracter(c);
     return result;
 }

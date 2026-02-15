@@ -3,7 +3,7 @@
 #include <string>
 
 std::string cleanText(const std::string& text);
-void groupFive(std::string& text);
+void grupo5(std::string& text);
 
 #endif
 

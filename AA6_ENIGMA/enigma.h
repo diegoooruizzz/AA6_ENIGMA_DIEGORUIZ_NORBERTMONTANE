@@ -9,14 +9,14 @@ private:
     Rotor r1, r2, r3;
 
 public:
-    bool loadRotors();
-    void setPositions(char a, char b, char c);
+    bool cargarRotores();
+    void ponerPosiciones(char a, char b, char c);
 
-    char encryptChar(char c);
-    char decryptChar(char c);
+    char encriptarCaracter(char c);
+    char desencriptarCaracter(char c);
 
-    std::string encryptMessage(const std::string& msg);
-    std::string decryptMessage(const std::string& msg);
+    std::string encriptarMensaje(const std::string& msg);
+    std::string desencriptarMensaje(const std::string& msg);
 };
 
 #endif

@@ -11,7 +11,7 @@ std::string cleanText(const std::string& text) {
     return result;
 }
 
-void groupFive(std::string& text) {
+void grupo5(std::string& text) {
     std::string grouped;
 
     for (int i = 0; i < text.size(); i++) {

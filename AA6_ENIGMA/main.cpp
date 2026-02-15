@@ -8,7 +8,7 @@ using namespace std;
 int main() {
     Enigma enigma;
 
-    if (!enigma.loadRotors()) {
+    if (!enigma.cargarRotores()) {
         cout << "ERROR No se pudieron cargar los rotors." << endl;
         return 1;
     }
@@ -31,7 +31,7 @@ int main() {
             cout << "Posiciones iniciales (A B C): ";
             cin >> a >> b >> c;
 
-            enigma.setPositions(a, b, c);
+            enigma.ponerPosiciones(a, b, c);
 
             cin.ignore();
             string texto;
@@ -39,8 +39,8 @@ int main() {
             getline(cin, texto);
 
             string limpio = cleanText(texto);
-            string cifrado = enigma.encryptMessage(limpio);
-            groupFive(cifrado);
+            string cifrado = enigma.encriptarMensaje(limpio);
+            grupo5(cifrado);
 
             ofstream out("Xifrat.txt");
             out << cifrado;
@@ -54,13 +54,13 @@ int main() {
             cout << "Posiciones iniciales (A B C): ";
             cin >> a >> b >> c;
 
-            enigma.setPositions(a, b, c);
+            enigma.ponerPosiciones(a, b, c);
 
             ifstream in("Xifrat.txt");
             string linea, texto;
             while (in >> linea) texto += linea;
 
-            string descifrado = enigma.decryptMessage(texto);
+            string descifrado = enigma.desencriptarMensaje(texto);
 
             ofstream out("Desxifrat.txt");
             out << descifrado;
